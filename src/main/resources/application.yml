@@ -1,0 +1,16 @@
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            client-id: Ov23liiyDHi4C6GFltP3
+            client-secret: 6a43b58b59f4945e77b26893610835d5077d1a6c
+            #scope: email, public_profile
+          google:
+            client-id: GOOGLE_CLIENT_ID
+            client-secret: GOOGLE_CLIENT_SECRET
+
+logging:
+  level:
+    org.springframework.security: TRACE
