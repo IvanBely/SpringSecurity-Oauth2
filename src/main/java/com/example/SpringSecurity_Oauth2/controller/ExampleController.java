@@ -12,17 +12,23 @@ public class ExampleController {
 
     @GetMapping
     @Operation(summary = "Доступен всем пользователям")
-    @PreAuthorize("isAuthenticated()")
     public String example() {
         return "Hello, world!";
     }
 
-    @GetMapping("/user")
+    @GetMapping("/secure")
     @Operation(summary = "Доступен только авторизованным пользователям")
     @PreAuthorize("isAuthenticated()")
-    public String exampleUser() {
+    public String exampleAuthenticated() {
         return "Secure endpoint is working!";
     }
+
+//    @GetMapping("/user/{id}")
+//    @Operation(summary = "Выводит информацию определенного пользователя")
+//    @PreAuthorize("isAuthenticated()")
+//    public String exampleUser() {
+//        return "Secure endpoint is working!";
+//    }
 
     @GetMapping("/admin")
     @Operation(summary = "Доступен только авторизованным пользователям с ролью ADMIN")

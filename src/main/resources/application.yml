@@ -1,4 +1,18 @@
 spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/oauth
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: create
+
+
+  server:
+    port: 8080
+
   security:
     oauth2:
       client:
@@ -6,11 +20,10 @@ spring:
           github:
             client-id: Ov23liiyDHi4C6GFltP3
             client-secret: 6a43b58b59f4945e77b26893610835d5077d1a6c
-            #scope: email, public_profile
-          google:
-            client-id: GOOGLE_CLIENT_ID
-            client-secret: GOOGLE_CLIENT_SECRET
+            scope:
+              - read:user
+              - user:email
 
 logging:
   level:
-    org.springframework.security: TRACE
+    org.springframework.security: INFO
